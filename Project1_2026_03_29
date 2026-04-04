@@ -1,0 +1,27 @@
+#"Guess my age" – miniproject by Inooferno 2026-03-29
+
+print("Hello, I'm going to guess your age based on some questions")
+print('Only answer with "true" or "false"')
+input("Press Enter to continue: ")
+x = int(40)
+
+q_1 = str(input("Are you older than 40: "))
+if q_1 == "true":
+    x = 40 + 10
+elif q_1 == "false":
+    x = 40 - 10
+
+q_2 = str(input("Are you older than 20: "))
+if q_2 == "true":
+    x = x - 10
+elif q_2 == "false":
+    x = x - 20
+
+q_3 = str(input("Are you older than 10: "))
+if q_3 == "true":
+    x = x + 5
+elif q_3 == "false":
+    x = x - 5
+
+answer = x
+print("I think you are " + str(x))
