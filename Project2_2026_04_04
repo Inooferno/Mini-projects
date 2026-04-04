@@ -1,0 +1,22 @@
+import random
+
+print("Gissningspel av Inooferno!")
+print("––––––––––––––––––––––––")
+input("Tryck enter för att fortsätta")
+
+tal = random.randint(1, 100)
+
+gissning = input("Gissa på ett nummer mellan 1-100: ")
+gissning = int(gissning)
+
+while gissning != tal:
+    if gissning == tal:
+        print("Du gissade rätt!")
+    elif gissning > tal:
+        print("Talet är lägre")
+    elif gissning < tal:
+        print("Talet är högre")
+    gissning = int(input("Gissa på ett nummer mellan 1-100: "))
+
+if gissning == tal:
+    print("Du gissade rätt!")
