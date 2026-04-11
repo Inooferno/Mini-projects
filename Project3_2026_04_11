@@ -1,0 +1,42 @@
+#Mini-project by Inooferno 2026-04-11
+todolist = []
+
+while True: #got this code from ChatGPT
+    try:
+        amount_todo = int(input("How many todos do you want to add? "))
+        if amount_todo < 0:
+            print("Number must be 0 or more!")
+        else:
+            break
+    except:
+        print("Please enter a valid number!")
+
+for i in range(int(amount_todo)):
+    todo = (input("To do:"))
+    todolist.append(todo)
+print(todolist)
+
+while len(todolist) > 0:
+    response = input("What do you want to do? (show/add/delete):")
+    if response == "show":
+        print(todolist)
+    if response == "add":
+        while True:
+            try:
+                amount_todo2 = int(input("How many todos do you want to add? "))
+                if amount_todo2 < 0:
+                    print("Number must be 0 or more!")
+                else:
+                    break
+            except:
+                print("Please enter a valid number!")
+        for i in range(int(amount_todo2)):
+             todo = (input("To do:"))
+             todolist.append(todo)
+             print(todolist)
+    if response == "delete":
+        todolist.pop(-1)
+        if len(todolist) == 0:
+            print("Finished!")
+        else:
+            print(todolist)
