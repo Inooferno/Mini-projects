@@ -1,0 +1,38 @@
+#Inooferno 2026-04-18 with assist from Gemini
+print("Simplified bank")
+print("–––––––––––––––––")
+print("             ")
+
+bank = 0
+balance = int(input("Input your balance: "))
+
+def deposit(current_balance, current_bank, amount):
+    current_balance = current_balance - amount
+    current_bank = current_bank + amount
+    return current_balance, current_bank # code from gemini
+
+def withdrawal(current_balance, current_bank, amount):
+    current_balance = current_balance + amount
+    current_bank = current_bank - amount
+    return current_balance, current_bank # code from gemini
+
+while True:
+    action = input("What would you like to do today? (deposit/withdraw/balance/exit) ")
+    if action == "exit":
+        print("Have a nice day!")
+        break  # code from gemini
+
+    elif action == "deposit":
+        depositamount = int(input("How much would you like to deposit? "))
+        balance, bank = deposit(balance, bank, depositamount) # code from gemini – saves variables
+
+    elif action == "withdraw":
+        withdrawalamount = int(input("How much would you like to withdraw? "))
+        balance, bank = withdrawal(balance, bank, withdrawalamount) # code from gemini – saves variables
+
+    elif action == "balance":
+        print("Balance:", balance)
+        print("Bank:", bank)
+
+    else:
+        print("Invalid action. Please choose deposit, withdraw, balance, or exit.")
