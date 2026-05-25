@@ -1,0 +1,280 @@
+# Textbaserat spel: "Bag the baddie" 2026-05-01
+
+import time
+import json
+import os
+
+print("Bag the baddie av Inooferno")
+print("–––––––––––––––––––––––––––––")
+
+
+# --- SPARA OCH LADDA FUNKTIONER ---
+def spara_spel(nuvarande_scen):
+    spar_data = {
+        "scen": nuvarande_scen
+    }
+    with open("savegame.json", "w") as fil:
+        json.dump(spar_data, fil)
+
+
+def ladda_spel():
+    if os.path.exists("savegame.json"):
+        with open("savegame.json", "r") as fil:
+            spar_data = json.load(fil)
+            return spar_data["scen"]
+    else:
+        return None
+
+
+# --- SPELETS SCENER ---
+def kyss():
+    spara_spel("kyss")  # Spara!
+    print("Hon blundar sina ögon...")
+    time.sleep(1)
+    input("Detta är din chans... (Enter)")
+    input("Du blundar dina ögon och närmar dig hennes läppar... (Enter)")
+    input("Du känner mjuka läppar möta dina egna... (Enter)")
+    print("Hon dammar upp dig, och du låter det hända")
+    time.sleep(1)
+    print("Du njuter av det... varje sekund av det")
+    time.sleep(1)
+    print("Hon bryter sig loss för att andas... (Enter)")
+    time.sleep(1)
+    print("Ni kollar varann i ögonen än igen")
+    time.sleep(1)
+
+    while True:
+        action5 = input("Fråga om hennes snap? (Ja/Nej): ").lower()
+        if action5 == "ja":
+            input("Du: 'Kan jag få din snap?'")
+            print("Hon: 'Okej'")
+            time.sleep(1)
+            print("Mission accomplished")
+            break
+        elif action5 == "nej":
+            print("Hon: 'Kan jag få din snap?'")
+            time.sleep(1)
+            input("Du: Såklart")
+            print("Mission accomplished")
+            break
+        else:
+            print("Ogiltig respons")
+            print("–––––––––––––––––––––––––––––")
+
+
+def dans():
+    spara_spel("dans")  # Spara!
+    input("Hon kramar runt sina armar kring dina axlar... (Enter)")
+    time.sleep(1)
+    input("Du känner hur stämningen intensifieras... (Enter)")
+    time.sleep(1)
+    input("Eran ögon låser sig i varandra (Enter)")
+    time.sleep(1)
+    input("Hon har en söt blick... (Enter)")
+    time.sleep(1)
+    input("Du kollar ner, och får syn på hennes glansiga läppar (Enter)")
+
+    while True:
+        action4 = input("Vad gör du nu? (ler/kyss): ").lower()
+
+        if action4 == "ler":
+            input("Du ler glatt mot henne (Enter)")
+            print("Hon ler tillbaks söt")
+            time.sleep(1)
+            input("Låten närmar sig sin climax... (Enter)")
+            input("Hon börjar dansa mer intensivt intill dig... (Enter)")
+            input("Du lägger handen på hennes kind... (Enter)")
+            print("Hon nickar varsamt...")
+            kyss()
+            break
+
+        elif action4 == "kyss":
+            input("Du lägger handen på hennes kind... (Enter)")
+            time.sleep(1)
+            input("Du ser hur hon blir obekväm... (Enter)")
+            time.sleep(1)
+            while True:
+                kyss2 = input("Fortsätt? (ja/nej): ").lower()
+                if kyss2 == "ja":
+                    input("Du går in för kysset... (Enter)")
+                    print("Hon puttar iväg dina läppar och går snabbt ifrån")
+                    time.sleep(1)
+                    print("Du fuckade verkligen upp allt...")
+                    fail()
+                    break
+                elif kyss2 == "nej":
+                    input("Du släpper loss hennes kind... (Enter)")
+                    input("Ni fortsätter att dansa ett tag till... (Enter)")
+                    input("Du märker av hur hon börjar dansa mer intensivt intill dig när låten når sin climax (Enter)")
+                    input("Eran ögon låser sig i varandra (Enter)")
+                    input("Du lägger handen på hennes kind... (Enter)")
+                    input("Hon nickar varsamt...")
+                    kyss()
+                    break
+                else:
+                    print("Ogiltig respons")
+                    print("–––––––––––––––––––––––––––––")
+            break
+        else:
+            print("Ogiltig respons.")
+            print("–––––––––––––––––––––––––––––")
+
+
+def introducerar():
+    spara_spel("introducerar")  # Spara!
+    input("Du: 'Hej'")
+    print("Hon: 'Hej...' ")
+    time.sleep(1)
+    while True:
+        action3 = input("Vad gör du nu? (komplimang/dans): ").lower()
+
+        if action3 == "komplimang":
+            komplimang()
+            break
+
+        elif action3 == "dans":
+            input("Du: 'Vill du dansa?'")
+            print("Hon kollar dig djupt in i ögonen...")
+            time.sleep(1)
+            print("Hon: 'Okej'")
+            time.sleep(1)
+            dans()
+            break
+
+        else:
+            print("Ogiltig respons")
+            print("–––––––––––––––––––––––––––––")
+
+
+def fail():
+    print("–––––––––––––––––––––––––––––")
+    print("GAME OVER - Du tappade chansen...")
+    # Ta bort sparfilen om man förlorar, så man inte laddar in i en Game Over
+    if os.path.exists("savegame.json"):
+        os.remove("savegame.json")
+
+
+def komplimang():
+    spara_spel("komplimang")  # Spara!
+    while True:
+        compliment = input("Vad komplimenterar du?: (doft/ögon/fötter): ").lower()
+
+        if compliment == "doft":
+            input("Du: 'Du luktade ljuvligt'")
+            print("Hon: 'Tack'")
+            time.sleep(1)
+            input("Du: 'vill du dansa?'")
+            print("Hon: 'Okej'")
+            time.sleep(1)
+            dans()
+            break
+        elif compliment == "ögon":
+            input("Du: 'Dina ögon va jätte fina'")
+            print("Hon: 'Tack'")
+            time.sleep(1)
+            input("Du: 'vill du dansa?'")
+            print("Hon: 'Okej'")
+            time.sleep(1)
+            dans()
+            break
+        elif compliment == "fötter":
+            input("Hon rullar med ögonen och vänder sig om mot sina kompisar igen. (Enter)")
+            fail()
+            break
+        else:
+            print("Ogiltig respons")
+            print("–––––––––––––––––––––––––––––")
+
+
+def action_1():
+    spara_spel("action_1")  # Spara!
+    while True:
+        action1 = input('Vad gör du?: (gå fram/dansa): ').lower()
+
+        if action1 == 'gå fram':
+            input("Du går fram till henne... (Enter)")
+            input("Hon lägger inte märke till dig först (Enter)")
+            action_2()
+            break
+
+        elif action1 == "dansa":
+            input("Du fortsätter att dansa medan du blickar mot henne... (Enter)")
+            print("–––––––––––––––––––––––––––––")
+
+        else:
+            print("Ogiltig respons.")
+            print("–––––––––––––––––––––––––––––")
+
+
+def action_2():
+    spara_spel("action_2")  # Spara!
+    while True:
+        action2 = input("Vad gör du?: (går tillbaks/petar): ").lower()
+
+        if action2 == "går tillbaks":
+            print("Du fegar ur och går tillbaka...")
+            action_1()
+            break
+
+        elif action2 == "petar":
+            input("Du petar lite på henne (Enter)")
+            input("Hon ser dig (Enter)")
+            while True:
+                konversation1 = input("Vad säger du? (introducerar/skumt/komplimang): ").lower()
+                if konversation1 == "introducerar":
+                    introducerar()
+                    break
+                elif konversation1 == "skumt":
+                    fail()
+                    break
+                elif konversation1 == "komplimang":
+                    komplimang()
+                    break
+                else:
+                    print("Hon snear dig")
+                    fail()
+                    break
+            break
+
+        else:
+            print("Ogiltig respons")
+            print("–––––––––––––––––––––––––––––")
+
+
+def starta_nytt_spel():
+    input("Du är i en fest, stämningen är hetsig och alla är live (Enter för att fortsätta): ")
+    input("Du ser en snygg abg (Enter för att fortsätta): ")
+    action_1()
+
+
+# --- HUVUDMENY ---
+print("1. Nytt spel")
+print("2. Ladda spel")
+
+meny_val = input("Välj (1/2): ")
+
+if meny_val == "2":
+    sparad_scen = ladda_spel()
+
+    if sparad_scen:
+        print(f"Laddar... (Fortsätter från {sparad_scen})")
+        print("–––––––––––––––––––––––––––––")
+        if sparad_scen == "action_1":
+            action_1()
+        elif sparad_scen == "action_2":
+            action_2()
+        elif sparad_scen == "introducerar":
+            introducerar()
+        elif sparad_scen == "komplimang":
+            komplimang()
+        elif sparad_scen == "dans":
+            dans()
+        elif sparad_scen == "kyss":
+            kyss()
+    else:
+        print("Ingen sparfil hittades. Startar nytt spel...")
+        print("–––––––––––––––––––––––––––––")
+        starta_nytt_spel()
+else:
+    print("–––––––––––––––––––––––––––––")
+    starta_nytt_spel()
