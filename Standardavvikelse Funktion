@@ -1,0 +1,14 @@
+#2026-05-26
+
+from math import sqrt
+
+def standardavvikelse():
+    n = int(input("Hur många mätvärden: "))
+    m = int(input("Vad är medelvärdet: "))
+    x = int(input("Vad är det enskilda värdet: "))
+    numerator = (x-m)^2
+    denominator = (n-1)
+    s = sqrt(numerator/denominator)
+    return s
+
+print(standardavvikelse())
